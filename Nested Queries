@@ -1,0 +1,67 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000),
+(6, 'Neha', 'Sales', 30000);
+
+-- Display Table
+SELECT * FROM Employee;
+
+-- Nested Query 1
+-- Find employees having salary greater than average salary
+
+SELECT Emp_Name, Salary
+FROM Employee
+WHERE Salary > (
+    SELECT AVG(Salary)
+    FROM Employee
+);
+
+-- Nested Query 2
+-- Find employees working in IT department
+
+SELECT Emp_Name
+FROM Employee
+WHERE Department IN (
+    SELECT Department
+    FROM Employee
+    WHERE Department = 'IT'
+);
+
+-- Nested Query 3
+-- Find employee having maximum salary
+
+SELECT Emp_Name, Salary
+FROM Employee
+WHERE Salary = (
+    SELECT MAX(Salary)
+    FROM Employee
+);
+
+-- Nested Query 4
+-- Find employees whose salary is less than minimum salary of IT department
+
+SELECT Emp_Name, Salary
+FROM Employee
+WHERE Salary < (
+    SELECT MIN(Salary)
+    FROM Employee
+    WHERE Department = 'IT'
+);

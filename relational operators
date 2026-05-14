@@ -1,0 +1,48 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000);
+
+-- Display Table
+SELECT * FROM Employee;
+
+-- Equal To Operator (=)
+SELECT * FROM Employee
+WHERE Department = 'IT';
+
+-- Not Equal To Operator (!=)
+SELECT * FROM Employee
+WHERE Department != 'HR';
+
+-- Greater Than Operator (>)
+SELECT * FROM Employee
+WHERE Salary > 30000;
+
+-- Less Than Operator (<)
+SELECT * FROM Employee
+WHERE Salary < 35000;
+
+-- Greater Than or Equal To Operator (>=)
+SELECT * FROM Employee
+WHERE Salary >= 40000;
+
+-- Less Than or Equal To Operator (<=)
+SELECT * FROM Employee
+WHERE Salary <= 28000;

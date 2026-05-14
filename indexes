@@ -1,0 +1,46 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000);
+
+-- Display Table
+SELECT * FROM Employee;
+
+-- Create Index on Employee Name
+CREATE INDEX idx_empname
+ON Employee(Emp_Name);
+
+-- Display Index Information
+SHOW INDEX FROM Employee;
+
+-- Search Data Using Indexed Column
+SELECT * FROM Employee
+WHERE Emp_Name = 'Sneha';
+
+-- Create Composite Index
+CREATE INDEX idx_dept_salary
+ON Employee(Department, Salary);
+
+-- Display Index Information Again
+SHOW INDEX FROM Employee;
+
+-- Drop Index
+DROP INDEX idx_empname
+ON Employee;

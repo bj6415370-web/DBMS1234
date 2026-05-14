@@ -1,0 +1,51 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000),
+(6, 'Neha', 'Sales', 30000),
+(7, 'Arjun', 'IT', 50000),
+(8, 'Pooja', 'Finance', 32000);
+
+-- Display Table
+SELECT * FROM Employee;
+
+-- Names Starting with 'A'
+SELECT * FROM Employee
+WHERE Emp_Name LIKE 'A%';
+
+-- Names Ending with 'a'
+SELECT * FROM Employee
+WHERE Emp_Name LIKE '%a';
+
+-- Names Containing 'h'
+SELECT * FROM Employee
+WHERE Emp_Name LIKE '%h%';
+
+-- Names Having Second Letter 'r'
+SELECT * FROM Employee
+WHERE Emp_Name LIKE '_r%';
+
+-- Department Starting with 'F'
+SELECT * FROM Employee
+WHERE Department LIKE 'F%';
+
+-- Department Ending with 'T'
+SELECT * FROM Employee
+WHERE Department LIKE '%T';

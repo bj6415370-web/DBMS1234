@@ -1,0 +1,57 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30)
+);
+
+-- Insert Records into Employee Table
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR'),
+(2, 'Sneha', 'IT'),
+(3, 'Rohit', 'Finance'),
+(4, 'Priya', 'IT');
+
+-- Create Manager Table
+CREATE TABLE Manager (
+    Manager_ID INT PRIMARY KEY,
+    Manager_Name VARCHAR(50),
+    Department VARCHAR(30)
+);
+
+-- Insert Records into Manager Table
+INSERT INTO Manager VALUES
+(101, 'Raj', 'HR'),
+(102, 'Anita', 'IT'),
+(103, 'Vikas', 'Sales'),
+(104, 'Priya', 'IT');
+
+-- Display Employee Table
+SELECT * FROM Employee;
+
+-- Display Manager Table
+SELECT * FROM Manager;
+
+-- UNION Operator
+SELECT Emp_Name AS Name, Department
+FROM Employee
+
+UNION
+
+SELECT Manager_Name AS Name, Department
+FROM Manager;
+
+-- UNION ALL Operator
+SELECT Emp_Name AS Name, Department
+FROM Employee
+
+UNION ALL
+
+SELECT Manager_Name AS Name, Department
+FROM Manager;

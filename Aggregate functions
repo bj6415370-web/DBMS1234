@@ -1,0 +1,58 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000),
+(6, 'Neha', 'Sales', 30000),
+(7, 'Arjun', 'IT', 50000),
+(8, 'Pooja', 'Finance', 32000);
+
+-- Display Table
+SELECT * FROM Employee;
+
+-- COUNT Function with GROUP BY
+SELECT Department, COUNT(*) AS Total_Employees
+FROM Employee
+GROUP BY Department;
+
+-- SUM Function with GROUP BY
+SELECT Department, SUM(Salary) AS Total_Salary
+FROM Employee
+GROUP BY Department;
+
+-- AVG Function with GROUP BY
+SELECT Department, AVG(Salary) AS Average_Salary
+FROM Employee
+GROUP BY Department;
+
+-- MAX Function with GROUP BY
+SELECT Department, MAX(Salary) AS Highest_Salary
+FROM Employee
+GROUP BY Department;
+
+-- MIN Function with GROUP BY
+SELECT Department, MIN(Salary) AS Lowest_Salary
+FROM Employee
+GROUP BY Department;
+
+-- HAVING Clause Example
+SELECT Department, AVG(Salary) AS Average_Salary
+FROM Employee
+GROUP BY Department
+HAVING AVG(Salary) > 35000;

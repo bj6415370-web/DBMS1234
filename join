@@ -1,0 +1,69 @@
+CREATE DATABASE CompanyDB;
+
+
+USE CompanyDB;
+
+
+
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+
+
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000);
+
+
+
+CREATE TABLE Department (
+    Dept_Name VARCHAR(30),
+    Location VARCHAR(30)
+);
+
+
+INSERT INTO Department VALUES
+('HR', 'Pune'),
+('IT', 'Mumbai'),
+('Finance', 'Delhi'),
+('Sales', 'Nagpur');
+
+
+
+
+SELECT * FROM Employee;
+
+
+
+SELECT * FROM Department;
+
+
+
+
+-- inner join
+
+SELECT 
+    E.Emp_ID,
+    E.Emp_Name,
+    E.Department,
+    D.Location
+FROM Employee E
+INNER JOIN Department D
+ON E.Department = D.Dept_Name;
+
+-- left join
+
+SELECT 
+    E.Emp_Name,
+    E.Department,
+    D.Location
+FROM Employee E
+LEFT JOIN Department D
+ON E.Department = D.Dept_Name;

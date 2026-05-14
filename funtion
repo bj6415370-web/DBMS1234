@@ -1,0 +1,46 @@
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000);
+
+
+SELECT * FROM Employee;
+
+
+
+DELIMITER //
+
+CREATE FUNCTION Annual_Salary(p_empid INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE v_salary INT;
+
+    SELECT Salary * 12
+    INTO v_salary
+    FROM Employee
+    WHERE Emp_ID = p_empid;
+
+    RETURN v_salary;
+END //
+
+DELIMITER ;
+
+
+
+SELECT Annual_Salary(2) AS Annual_Salary;
+
+SELECT Annual_Salary(4) AS Annual_Salary;

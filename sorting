@@ -1,0 +1,45 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000),
+(6, 'Neha', 'Sales', 30000),
+(7, 'Arjun', 'IT', 50000),
+(8, 'Pooja', 'Finance', 32000),
+(9, 'Vikas', 'Sales', 27000),
+(10, 'Meena', 'HR', 26000);
+
+-- Display Table
+SELECT * FROM Employee;
+
+-- Sorting by Employee Name in Ascending Order
+SELECT * FROM Employee
+ORDER BY Emp_Name ASC;
+
+-- Sorting by Salary in Descending Order
+SELECT * FROM Employee
+ORDER BY Salary DESC;
+
+-- Sorting by Department Name
+SELECT * FROM Employee
+ORDER BY Department ASC;
+
+-- Sorting by Department and Salary
+SELECT * FROM Employee
+ORDER BY Department ASC, Salary DESC;

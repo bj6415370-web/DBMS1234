@@ -1,0 +1,50 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Salary INT
+);
+
+-- Display Table Structure
+DESC Employee;
+
+-- Add New Column
+ALTER TABLE Employee
+ADD Department VARCHAR(30);
+
+-- Display Structure After ADD
+DESC Employee;
+
+-- Modify Column Datatype
+ALTER TABLE Employee
+MODIFY Emp_Name VARCHAR(100);
+
+-- Display Structure After MODIFY
+DESC Employee;
+
+-- Rename Column
+ALTER TABLE Employee
+RENAME COLUMN Salary TO Monthly_Salary;
+
+-- Display Structure After RENAME COLUMN
+DESC Employee;
+
+-- Drop Column
+ALTER TABLE Employee
+DROP COLUMN Department;
+
+-- Display Structure After DROP COLUMN
+DESC Employee;
+
+-- Rename Table
+ALTER TABLE Employee
+RENAME TO Employee_Details;
+
+-- Display Final Table Structure
+DESC Employee_Details;

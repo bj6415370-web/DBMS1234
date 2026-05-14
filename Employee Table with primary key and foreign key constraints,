@@ -1,0 +1,71 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Department Table
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50)
+);
+
+-- Insert Records into Department Table
+INSERT INTO Department VALUES
+(1, 'HR'),
+(2, 'IT'),
+(3, 'Finance');
+
+-- Display Department Table
+SELECT * FROM Department;
+
+-- Create Employee Table with Primary Key and Foreign Key
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Salary INT,
+    Dept_ID INT,
+    FOREIGN KEY (Dept_ID)
+    REFERENCES Department(Dept_ID)
+);
+
+-- Insert Records into Employee Table
+INSERT INTO Employee VALUES
+(101, 'Amit', 25000, 1),
+(102, 'Sneha', 40000, 2),
+(103, 'Rohit', 35000, 3),
+(104, 'Priya', 45000, 2);
+
+-- Display Employee Table
+SELECT * FROM Employee;
+
+-- Display Table Structure
+DESC Employee;
+
+---------------------------------------------------
+-- ALTER TABLE OPERATIONS
+---------------------------------------------------
+
+-- Add New Column
+ALTER TABLE Employee
+ADD Email VARCHAR(100);
+
+-- Display Structure After ADD
+DESC Employee;
+
+-- Modify Column Datatype
+ALTER TABLE Employee
+MODIFY Emp_Name VARCHAR(100);
+
+-- Display Structure After MODIFY
+DESC Employee;
+
+---------------------------------------------------
+-- DROP TABLE OPERATION
+---------------------------------------------------
+
+-- Drop Employee Table
+DROP TABLE Employee;
+
+-- Drop Department Table
+DROP TABLE Department;

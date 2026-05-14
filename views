@@ -1,0 +1,41 @@
+-- Create Database
+CREATE DATABASE CompanyDB;
+
+-- Use Database
+USE CompanyDB;
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(1, 'Amit', 'HR', 25000),
+(2, 'Sneha', 'IT', 40000),
+(3, 'Rohit', 'Finance', 35000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Karan', 'HR', 28000);
+
+-- Display Original Table
+SELECT * FROM Employee;
+
+-- Create View
+CREATE VIEW Employee_View AS
+SELECT Emp_ID, Emp_Name, Department
+FROM Employee;
+
+-- Display View
+SELECT * FROM Employee_View;
+
+-- Create Another View for High Salary Employees
+CREATE VIEW High_Salary_View AS
+SELECT Emp_Name, Salary
+FROM Employee
+WHERE Salary > 30000;
+
+-- Display High Salary View
+SELECT * FROM High_Salary_View;

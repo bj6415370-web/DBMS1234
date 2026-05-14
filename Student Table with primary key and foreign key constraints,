@@ -1,0 +1,77 @@
+-- Create Database
+CREATE DATABASE CollegeDB;
+
+-- Use Database
+USE CollegeDB;
+
+---------------------------------------------------
+-- Create Course Table
+---------------------------------------------------
+
+CREATE TABLE Course (
+    Course_ID INT PRIMARY KEY,
+    Course_Name VARCHAR(50)
+);
+
+-- Insert Records into Course Table
+INSERT INTO Course VALUES
+(1, 'BCA'),
+(2, 'BBA'),
+(3, 'BSc');
+
+-- Display Course Table
+SELECT * FROM Course;
+
+---------------------------------------------------
+-- Create Student Table
+---------------------------------------------------
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    Course_ID INT,
+    FOREIGN KEY (Course_ID)
+    REFERENCES Course(Course_ID)
+);
+
+-- Insert Records into Student Table
+INSERT INTO Student VALUES
+(101, 'Amit', 20, 1),
+(102, 'Sneha', 21, 2),
+(103, 'Rohit', 19, 3),
+(104, 'Priya', 20, 1);
+
+-- Display Student Table
+SELECT * FROM Student;
+
+-- Display Table Structure
+DESC Student;
+
+---------------------------------------------------
+-- ALTER TABLE OPERATIONS
+---------------------------------------------------
+
+-- Add New Column
+ALTER TABLE Student
+ADD Email VARCHAR(100);
+
+-- Display Structure After ADD
+DESC Student;
+
+-- Modify Column Datatype
+ALTER TABLE Student
+MODIFY Student_Name VARCHAR(100);
+
+-- Display Structure After MODIFY
+DESC Student;
+
+---------------------------------------------------
+-- DROP TABLE OPERATIONS
+---------------------------------------------------
+
+-- Drop Student Table
+DROP TABLE Student;
+
+-- Drop Course Table
+DROP TABLE Course;
